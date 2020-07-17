@@ -73,7 +73,8 @@ impl Resource {
             group = if self.group.is_empty() { "api" } else { "apis" },
             api_version = self.api_version,
             namespaces = n,
-            resource = to_plural(&self.kind.to_ascii_lowercase()),
+            // resource = to_plural(&self.kind.to_ascii_lowercase()),
+            resource = format!("{}s", &self.kind.to_ascii_lowercase())
         )
     }
 }
